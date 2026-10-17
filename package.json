@@ -1,0 +1,43 @@
+{
+  "name": "anonymous-garden",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/lib/*.test.ts src/server/*.test.ts",
+    "admin:setup": "tsx scripts/setup-local.ts",
+    "notifications:send": "tsx scripts/send-notifications.ts",
+    "test:integration": "tsx scripts/verify-local.ts",
+    "telegram:setup": "tsx scripts/setup-telegram.ts",
+    "db:initialize": "tsx scripts/initialize-database.ts",
+    "release:check": "tsx scripts/check-release.ts"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "5.3.0",
+    "@fontsource/noto-sans-myanmar": "5.3.0",
+    "@react-three/fiber": "9.8.2",
+    "next": "16.4.2",
+    "nodemailer": "^10.1.2",
+    "pg": "^8.23.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10",
+    "@types/node": "26.6.5",
+    "@types/nodemailer": "^8.0.2",
+    "@types/pg": "^8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/three": "0.186.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}
