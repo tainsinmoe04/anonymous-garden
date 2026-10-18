@@ -1,6 +1,6 @@
 # Local safety and operations guide
 
-The currently running installation is a local development service. Hosted PostgreSQL support is implemented, but production provisioning and live verification remain outstanding; public deployment is not yet confirmed. Visitor text now persists; use fictional text for testing. The illustrated garden still uses layered 2.5D flower meshes, not fully sculpted botanical models.
+A pilot is deployed at https://anonymous-garden.vercel.app with managed PostgreSQL. The local SQLite development installation remains separate. Production provisioning and the primary hosted journeys were verified on 2026-10-18; independent expert/security/accessibility review remains an operational limitation. Visitor text now persists; use fictional text for testing. The illustrated garden still uses layered 2.5D flower meshes, not fully sculpted botanical models.
 
 ## Owner decisions implemented
 
@@ -29,7 +29,7 @@ Use “Pause submissions” when unavailable. This stops new stories, encouragem
 
 ## Data and privacy
 
-- SQLite file: `.garden-data/garden.sqlite`, ignored by Git. It is local, single-server development storage. Use an encrypted disk and restrict OS/file access before handling real disclosures. This setup is not a serverless/Vercel database. A PostgreSQL adapter and hosted schema are now implemented; actual managed database provisioning and remote verification remain outstanding.
+- SQLite file: `.garden-data/garden.sqlite`, ignored by Git. It is local, single-server development storage. Use an encrypted disk and restrict OS/file access before handling real disclosures. This setup is not a serverless/Vercel database. A PostgreSQL adapter and hosted schema are now implemented; the managed database and primary remote journeys are now provisioned and verified.
 - Stories store language, flower, text, moderation state, timestamps, version, policy flags and a hash of a 256-bit management secret. Public responses never include that hash or secret.
 - Encouragement is public only when both it and its parent story are approved. Counts are derived inside database transactions; pending/rejected comments do not affect zero-response priority.
 - No raw IP, country, location, visitor name or email is stored. One-hour random visitor cookies support self-attestation and limits. Their hashes are stored separately from content, not as story author identities. They are not perfect bot prevention and do not enable permanent user bans.

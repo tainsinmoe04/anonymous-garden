@@ -8,7 +8,7 @@ The source supports persistent PostgreSQL on Vercel and SQLite only for local de
 - Hosted origins require one explicitly configured HTTPS origin, with same-origin mutation checks.
 - No automatic SQLite fallback is permitted on Vercel.
 - The production schema starts with submissions paused. An authenticated owner can open submissions after live verification.
-- Vercel login, free database provisioning, production environment setup and remote end-to-end verification must finish before claiming a working deployment.
+- Vercel login, free database provisioning, production configuration and remote verification completed on 2026-10-18. See DEPLOYMENT_RECORD.md.
 
 ## Account and project
 

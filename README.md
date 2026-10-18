@@ -16,7 +16,7 @@ The immersive garden uses detailed botanical textures on moving WebGL meshes, gl
 - Hosted HTTPS origin enforcement, no SQLite fallback on Vercel, authenticated maintenance route and deployment configuration.
 - Unit/security/store tests, PostgreSQL-engine tests, 45 isolated HTTP integration checks and GitHub Actions verification.
 
-The owner configured Telegram locally and a generic test was accepted by Telegram. Production hosting/database provisioning and remote end-to-end verification are separate steps; a successful build does not mean the website is live.
+Pilot deployment is live at https://anonymous-garden.vercel.app with production PostgreSQL, owner moderation and Telegram notifications. Remote verification completed on 2026-10-18. See docs/DEPLOYMENT_RECORD.md for the exact checks and operational limits.
 
 ## Local run
 
@@ -56,7 +56,7 @@ npm run build
 npm run test:integration
 ```
 
-The HTTP suite uses a disposable fictional SQLite database on port 3002 and explicitly clears production database/Telegram configuration. It checks auth, CSRF, moderation isolation, custom review terms, edits, reports, pause/resume, deletion and restart persistence. PostgreSQL SQL behavior is separately exercised with PGlite; real hosted connectivity still needs verification.
+The HTTP suite uses a disposable fictional SQLite database on port 3002 and explicitly clears production database/Telegram configuration. It checks auth, CSRF, moderation isolation, custom review terms, edits, reports, pause/resume, deletion and restart persistence. PostgreSQL SQL behavior is separately exercised with PGlite; real hosted connectivity and the main anonymous-management/moderation journey were also verified separately.
 
 ## Deploy to Vercel
 
