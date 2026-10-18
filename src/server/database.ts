@@ -2,6 +2,7 @@ import {AsyncLocalStorage} from 'node:async_hooks';
 import {mkdirSync} from 'node:fs';
 import path from 'node:path';
 import {Pool,types,type PoolClient} from 'pg';
+import {attachDatabasePool} from '@vercel/functions';
 import {POSTGRES_SCHEMA,SQLITE_SCHEMA} from './schema';
 import type {DatabaseSync,SQLInputValue} from 'node:sqlite';
 export type Row=Record<string,string|number|null>;
@@ -44,7 +45,9 @@ export async function openDatabase(filename=process.env.DATABASE_URL||process.en
   }
   types.setTypeParser(20,value=>Number(value));
   const remote=!['localhost','127.0.0.1','[::1]'].includes(url.hostname);
-  const db=new PostgresDatabase(new Pool({connectionString:url.toString(),max:4,connectionTimeoutMillis:10000,idleTimeoutMillis:10000,ssl:remote?{rejectUnauthorized:true}:undefined}));
+  const pool=new Pool({connectionString:url.toString(),max:4,connectionTimeoutMillis:10000,idleTimeoutMillis:10000,ssl:remote?{rejectUnauthorized:true}:undefined});
+  if(process.env.VERCEL)attachDatabasePool(pool);
+  const db=new PostgresDatabase(pool);
   return db;
  }
  if(process.env.VERCEL)throw new Error('Persistent DATABASE_URL is required on Vercel; local SQLite is disabled.');

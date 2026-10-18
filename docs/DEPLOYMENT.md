@@ -31,7 +31,7 @@ Required private/server configuration:
 Use Node.js 24, the existing npm lockfile and Next.js framework settings. `.vercel/` is Git-ignored. A local project link is required before database initialization.
 
 ```powershell
-npm run db:initialize -- --env-file .env.production.local
+npm run db:initialize -- --env-file .garden-data/initialize.env
 ```
 
 Initialization creates the PostgreSQL schema and a new moderator credential only if one does not exist. The credential is saved to `.garden-data/hosted-admin-login.txt` without printing. Existing moderator passwords and database content are preserved. It does not copy local stories or visitor sessions into the cloud.

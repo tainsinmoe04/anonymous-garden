@@ -6,6 +6,7 @@ out/
 !.env.example
 .garden-data/
 .qa/
-
 .vercel/
 *.log
+.agents/
+skills-lock.json
